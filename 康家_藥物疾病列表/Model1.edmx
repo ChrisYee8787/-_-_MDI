@@ -1,0 +1,1540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbClassModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Consultation">
+          <Key>
+            <PropertyRef Name="fConsultId" />
+          </Key>
+          <Property Name="fConsultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatinetId" Type="int" />
+          <Property Name="Date" Type="nchar" MaxLength="20" />
+          <Property Name="Summary" Type="nchar" MaxLength="50" />
+          <Property Name="Assessment" Type="nchar" MaxLength="150" />
+          <Property Name="Result" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CounsultTypeRecord">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeNameId" Type="int" Nullable="false" />
+          <Property Name="fConsultId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmergenceCaller">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fPatientId" Type="int" />
+          <Property Name="fEmergencyName" Type="varchar" MaxLength="50" />
+          <Property Name="frelation" Type="varchar" MaxLength="50" />
+          <Property Name="fPhone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'dbClass.dbo.Employee' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fRank" Type="int" />
+          <Property Name="fName" Type="varchar" MaxLength="50" />
+          <Property Name="fPassword" Type="varchar" MaxLength="50" />
+          <Property Name="fAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PatientInfo">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fName" Type="varchar" MaxLength="50" />
+          <Property Name="fSex" Type="varchar" MaxLength="50" />
+          <Property Name="fCheckin" Type="varchar" MaxLength="50" />
+          <Property Name="fIdnum" Type="varchar" MaxLength="50" />
+          <Property Name="fBednum" Type="varchar" MaxLength="50" />
+          <Property Name="fBirthday" Type="varchar" MaxLength="50" />
+          <Property Name="fHomeNum" Type="varchar" MaxLength="50" />
+          <Property Name="fPhone" Type="varchar" MaxLength="50" />
+          <Property Name="fEdu" Type="varchar" MaxLength="50" />
+          <Property Name="fMarried" Type="varchar" MaxLength="50" />
+          <Property Name="fAddress" Type="varchar" MaxLength="50" />
+          <Property Name="fHos" Type="varchar" MaxLength="50" />
+          <Property Name="fIDY" Type="varchar" MaxLength="50" />
+          <Property Name="fGrant" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'dbClass.dbo.Rank' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="職級" />
+          </Key>
+          <Property Name="職級" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="職級名稱" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tClassThemeList">
+          <Key>
+            <PropertyRef Name="fClassThemeID" />
+          </Key>
+          <Property Name="fDeleteBool" Type="bit" />
+          <Property Name="fClassThemeID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fClassThemeName" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tEventType">
+          <Key>
+            <PropertyRef Name="fEventTypeID" />
+          </Key>
+          <Property Name="fID" Type="smallint" />
+          <Property Name="fDeleteBool" Type="bit" />
+          <Property Name="fEventTypeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fEventTypeName" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tFunctionBrige">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fFunctionlID" Type="int" Nullable="false" />
+          <Property Name="fTypeName" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tGroupActivity">
+          <Key>
+            <PropertyRef Name="fGroupActivityID" />
+          </Key>
+          <Property Name="fID" Type="int" />
+          <Property Name="fDeleteBool" Type="bit" />
+          <Property Name="fGroupActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fEventType" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fDate" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fStartTime" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fEndTime" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fGroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fGoal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fPeopleCount" Type="int" Nullable="false" />
+          <Property Name="fLeader" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fRecorder" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fProcess" Type="nvarchar" MaxLength="100" />
+          <Property Name="fAchievement" Type="nvarchar" MaxLength="100" />
+          <Property Name="fFillFormStaff" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fFillFormDate" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tGroupActivityClassTheme">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fDeleteBool" Type="bit" />
+          <Property Name="fGroupActivityID" Type="int" Nullable="false" />
+          <Property Name="fClassThemeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tGroupActivityPicAndFiles">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fDeleteBool" Type="bit" />
+          <Property Name="fGroupActivityID" Type="int" Nullable="false" />
+          <Property Name="fPicture1Path" Type="nvarchar" MaxLength="100" />
+          <Property Name="fPicture2Path" Type="nvarchar" MaxLength="100" />
+          <Property Name="fPicture3Path" Type="nvarchar" MaxLength="100" />
+          <Property Name="fPicture4Path" Type="nvarchar" MaxLength="100" />
+          <Property Name="fFile1Path" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tPersonalPerformance">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fDeleteBool" Type="nchar" MaxLength="10" />
+          <Property Name="fGroupActivityID" Type="int" Nullable="false" />
+          <Property Name="fResidentID" Type="int" Nullable="false" />
+          <Property Name="fEmotions" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fParticipatePersistence" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fCooperate" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fHumanInteraction" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fAttention" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fParticipatePerformance" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fDepiction" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tScheduleDetails">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fDeleteBool" Type="bit" />
+          <Property Name="fGroupActivityID" Type="int" Nullable="false" />
+          <Property Name="fStartTime" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fEndTime" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fDepiction" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TypeNames">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeNameId" Type="int" />
+          <Property Name="TypeName" Type="nchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="功能評估">
+          <Key>
+            <PropertyRef Name="f功能評估ID" />
+          </Key>
+          <Property Name="f功能評估ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fid" Type="int" Nullable="false" />
+          <Property Name="f日期" Type="nvarchar" MaxLength="50" />
+          <Property Name="f身高" Type="decimal" Precision="4" Scale="1" />
+          <Property Name="f體重" Type="decimal" Precision="4" Scale="1" />
+        </EntityType>
+        <EntityType Name="功能評估個表">
+          <Key>
+            <PropertyRef Name="ID_評估表" />
+          </Key>
+          <Property Name="ID_評估表" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f功能評估ID" Type="int" Nullable="false" />
+          <Property Name="f評估項目" Type="nvarchar" MaxLength="100" />
+          <Property Name="f現狀評估" Type="nvarchar" MaxLength="100" />
+          <Property Name="f問題" Type="nvarchar" MaxLength="100" />
+          <Property Name="f復健目標" Type="nvarchar" MaxLength="100" />
+          <Property Name="f復健計畫" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="疾病診斷">
+          <Key>
+            <PropertyRef Name="ID_Patient_Disease" />
+          </Key>
+          <Property Name="fid" Type="int" />
+          <Property Name="ID_Patient_Disease" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Disease" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiseaseChineseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="Section" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="疾病總表">
+          <Key>
+            <PropertyRef Name="ID_Disease" />
+          </Key>
+          <Property Name="ID_Disease" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="F2" Type="float" />
+          <Property Name="DiseaseEnglishName" Type="nvarchar" MaxLength="255" />
+          <Property Name="DiseaseChineseName" Type="nvarchar" MaxLength="255" />
+          <Property Name="F5" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="病人用藥資訊">
+          <Key>
+            <PropertyRef Name="ID_Patient_Medicine_Info" />
+          </Key>
+          <Property Name="ID_Patient_Medicine_Info" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_GetMedicineDate" Type="int" />
+          <Property Name="MedicineChineseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MedicineUsage" Type="nvarchar" MaxLength="50" />
+          <Property Name="MedicineTakeTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="MedicineDosage" Type="nvarchar" MaxLength="50" />
+          <Property Name="MedicineADDInfo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="病人開藥日期">
+          <Key>
+            <PropertyRef Name="ID_GetMedicineDate" />
+          </Key>
+          <Property Name="ID_GetMedicineDate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fid" Type="int" Nullable="false" />
+          <Property Name="Date_GetMedicine" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="復健計畫">
+          <Key>
+            <PropertyRef Name="功能評估ID" />
+          </Key>
+          <Property Name="功能評估ID" Type="int" Nullable="false" />
+          <Property Name="fid" Type="int" />
+          <Property Name="日期" Type="nvarchar" MaxLength="50" />
+          <Property Name="問題" Type="nchar" MaxLength="100" />
+          <Property Name="目標" Type="nchar" MaxLength="100" />
+          <Property Name="治療計畫" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="藥物使用方法">
+          <Key>
+            <PropertyRef Name="ID_MedicineUsage" />
+          </Key>
+          <Property Name="ID_MedicineUsage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicineUsage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="藥物服用時間">
+          <Key>
+            <PropertyRef Name="ID_MedicineTakeTime" />
+          </Key>
+          <Property Name="ID_MedicineTakeTime" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicineTakeTime" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="藥物計量單位">
+          <Key>
+            <PropertyRef Name="ID_Unit" />
+          </Key>
+          <Property Name="ID_Unit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Medicine_Unit" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="藥物資訊清單">
+          <Key>
+            <PropertyRef Name="ID_Medicine" />
+          </Key>
+          <Property Name="ID_Medicine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicineChineseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MedicineInformation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CounsultTypeRecord_Consultation">
+          <End Role="Consultation" Type="Self.Consultation" Multiplicity="1" />
+          <End Role="CounsultTypeRecord" Type="Self.CounsultTypeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consultation">
+              <PropertyRef Name="fConsultId" />
+            </Principal>
+            <Dependent Role="CounsultTypeRecord">
+              <PropertyRef Name="fConsultId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CounsultTypeRecord_TypeNames">
+          <End Role="TypeNames" Type="Self.TypeNames" Multiplicity="1" />
+          <End Role="CounsultTypeRecord" Type="Self.CounsultTypeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNames">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="CounsultTypeRecord">
+              <PropertyRef Name="TypeNameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergenceCaller_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
+          <End Role="EmergenceCaller" Type="Self.EmergenceCaller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="EmergenceCaller">
+              <PropertyRef Name="fPatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tFunctionBrige_TypeNames">
+          <End Role="TypeNames" Type="Self.TypeNames" Multiplicity="1" />
+          <End Role="tFunctionBrige" Type="Self.tFunctionBrige" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNames">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="tFunctionBrige">
+              <PropertyRef Name="fTypeName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tFunctionBrige_功能評估">
+          <End Role="功能評估" Type="Self.功能評估" Multiplicity="1" />
+          <End Role="tFunctionBrige" Type="Self.tFunctionBrige" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="功能評估">
+              <PropertyRef Name="f功能評估ID" />
+            </Principal>
+            <Dependent Role="tFunctionBrige">
+              <PropertyRef Name="fFunctionlID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivity_tEventType">
+          <End Role="tEventType" Type="Self.tEventType" Multiplicity="1" />
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tEventType">
+              <PropertyRef Name="fEventTypeID" />
+            </Principal>
+            <Dependent Role="tGroupActivity">
+              <PropertyRef Name="fEventType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivityClassTheme_TypeNames1">
+          <End Role="TypeNames" Type="Self.TypeNames" Multiplicity="1" />
+          <End Role="tGroupActivityClassTheme" Type="Self.tGroupActivityClassTheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNames">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="tGroupActivityClassTheme">
+              <PropertyRef Name="fClassThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivityClassThemeBridging_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tGroupActivityClassTheme" Type="Self.tGroupActivityClassTheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tGroupActivityClassTheme">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivityPictures_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tGroupActivityPicAndFiles" Type="Self.tGroupActivityPicAndFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tGroupActivityPicAndFiles">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tPersonalPerformance_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tPersonalPerformance" Type="Self.tPersonalPerformance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tPersonalPerformance">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tScheduleDetails_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tScheduleDetails" Type="Self.tScheduleDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tScheduleDetails">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_功能評估_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="1" />
+          <End Role="功能評估" Type="Self.功能評估" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="功能評估">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_功能評估個表_功能評估">
+          <End Role="功能評估" Type="Self.功能評估" Multiplicity="1" />
+          <End Role="功能評估個表" Type="Self.功能評估個表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="功能評估">
+              <PropertyRef Name="f功能評估ID" />
+            </Principal>
+            <Dependent Role="功能評估個表">
+              <PropertyRef Name="f功能評估ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_疾病診斷_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
+          <End Role="疾病診斷" Type="Self.疾病診斷" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="疾病診斷">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_病人用藥資訊_病人開藥日期">
+          <End Role="病人開藥日期" Type="Self.病人開藥日期" Multiplicity="0..1" />
+          <End Role="病人用藥資訊" Type="Self.病人用藥資訊" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="病人開藥日期">
+              <PropertyRef Name="ID_GetMedicineDate" />
+            </Principal>
+            <Dependent Role="病人用藥資訊">
+              <PropertyRef Name="ID_GetMedicineDate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_病人開藥日期_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="1" />
+          <End Role="病人開藥日期" Type="Self.病人開藥日期" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="病人開藥日期">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbClassModelStoreContainer">
+          <EntitySet Name="Consultation" EntityType="Self.Consultation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CounsultTypeRecord" EntityType="Self.CounsultTypeRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmergenceCaller" EntityType="Self.EmergenceCaller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientInfo" EntityType="Self.PatientInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tClassThemeList" EntityType="Self.tClassThemeList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tEventType" EntityType="Self.tEventType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tFunctionBrige" EntityType="Self.tFunctionBrige" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tGroupActivity" EntityType="Self.tGroupActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tGroupActivityClassTheme" EntityType="Self.tGroupActivityClassTheme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tGroupActivityPicAndFiles" EntityType="Self.tGroupActivityPicAndFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tPersonalPerformance" EntityType="Self.tPersonalPerformance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tScheduleDetails" EntityType="Self.tScheduleDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeNames" EntityType="Self.TypeNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="功能評估" EntityType="Self.功能評估" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="功能評估個表" EntityType="Self.功能評估個表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="疾病診斷" EntityType="Self.疾病診斷" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="疾病總表" EntityType="Self.疾病總表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="病人用藥資訊" EntityType="Self.病人用藥資訊" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="病人開藥日期" EntityType="Self.病人開藥日期" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="復健計畫" EntityType="Self.復健計畫" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="藥物使用方法" EntityType="Self.藥物使用方法" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="藥物服用時間" EntityType="Self.藥物服用時間" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="藥物計量單位" EntityType="Self.藥物計量單位" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="藥物資訊清單" EntityType="Self.藥物資訊清單" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Employee].[fid] AS [fid], 
+    [Employee].[fRank] AS [fRank], 
+    [Employee].[fName] AS [fName], 
+    [Employee].[fPassword] AS [fPassword], 
+    [Employee].[fAddress] AS [fAddress]
+    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Rank" EntityType="Self.Rank" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rank].[職級] AS [職級], 
+    [Rank].[職級名稱] AS [職級名稱]
+    FROM [dbo].[Rank] AS [Rank]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CounsultTypeRecord_Consultation" Association="Self.FK_CounsultTypeRecord_Consultation">
+            <End Role="Consultation" EntitySet="Consultation" />
+            <End Role="CounsultTypeRecord" EntitySet="CounsultTypeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CounsultTypeRecord_TypeNames" Association="Self.FK_CounsultTypeRecord_TypeNames">
+            <End Role="TypeNames" EntitySet="TypeNames" />
+            <End Role="CounsultTypeRecord" EntitySet="CounsultTypeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergenceCaller_PatientInfo" Association="Self.FK_EmergenceCaller_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="EmergenceCaller" EntitySet="EmergenceCaller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tFunctionBrige_TypeNames" Association="Self.FK_tFunctionBrige_TypeNames">
+            <End Role="TypeNames" EntitySet="TypeNames" />
+            <End Role="tFunctionBrige" EntitySet="tFunctionBrige" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tFunctionBrige_功能評估" Association="Self.FK_tFunctionBrige_功能評估">
+            <End Role="功能評估" EntitySet="功能評估" />
+            <End Role="tFunctionBrige" EntitySet="tFunctionBrige" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivity_tEventType" Association="Self.FK_tGroupActivity_tEventType">
+            <End Role="tEventType" EntitySet="tEventType" />
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivityClassTheme_TypeNames1" Association="Self.FK_tGroupActivityClassTheme_TypeNames1">
+            <End Role="TypeNames" EntitySet="TypeNames" />
+            <End Role="tGroupActivityClassTheme" EntitySet="tGroupActivityClassTheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivityClassThemeBridging_tGroupActivity" Association="Self.FK_tGroupActivityClassThemeBridging_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tGroupActivityClassTheme" EntitySet="tGroupActivityClassTheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivityPictures_tGroupActivity" Association="Self.FK_tGroupActivityPictures_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tGroupActivityPicAndFiles" EntitySet="tGroupActivityPicAndFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tPersonalPerformance_tGroupActivity" Association="Self.FK_tPersonalPerformance_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tPersonalPerformance" EntitySet="tPersonalPerformance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tScheduleDetails_tGroupActivity" Association="Self.FK_tScheduleDetails_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tScheduleDetails" EntitySet="tScheduleDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_功能評估_PatientInfo" Association="Self.FK_功能評估_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="功能評估" EntitySet="功能評估" />
+          </AssociationSet>
+          <AssociationSet Name="FK_功能評估個表_功能評估" Association="Self.FK_功能評估個表_功能評估">
+            <End Role="功能評估" EntitySet="功能評估" />
+            <End Role="功能評估個表" EntitySet="功能評估個表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_疾病診斷_PatientInfo" Association="Self.FK_疾病診斷_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="疾病診斷" EntitySet="疾病診斷" />
+          </AssociationSet>
+          <AssociationSet Name="FK_病人用藥資訊_病人開藥日期" Association="Self.FK_病人用藥資訊_病人開藥日期">
+            <End Role="病人開藥日期" EntitySet="病人開藥日期" />
+            <End Role="病人用藥資訊" EntitySet="病人用藥資訊" />
+          </AssociationSet>
+          <AssociationSet Name="FK_病人開藥日期_PatientInfo" Association="Self.FK_病人開藥日期_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="病人開藥日期" EntitySet="病人開藥日期" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbClassModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Consultation">
+          <Key>
+            <PropertyRef Name="fConsultId" />
+          </Key>
+          <Property Name="fConsultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatinetId" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Summary" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Assessment" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Result" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CounsultTypeRecord" Relationship="Self.FK_CounsultTypeRecord_Consultation" FromRole="Consultation" ToRole="CounsultTypeRecord" />
+        </EntityType>
+        <EntityType Name="CounsultTypeRecord">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeNameId" Type="Int32" Nullable="false" />
+          <Property Name="fConsultId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Consultation" Relationship="Self.FK_CounsultTypeRecord_Consultation" FromRole="CounsultTypeRecord" ToRole="Consultation" />
+          <NavigationProperty Name="TypeNames" Relationship="Self.FK_CounsultTypeRecord_TypeNames" FromRole="CounsultTypeRecord" ToRole="TypeNames" />
+        </EntityType>
+        <EntityType Name="EmergenceCaller">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fPatientId" Type="Int32" />
+          <Property Name="fEmergencyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="frelation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PatientInfo" Relationship="Self.FK_EmergenceCaller_PatientInfo" FromRole="EmergenceCaller" ToRole="PatientInfo" />
+        </EntityType>
+        <EntityType Name="PatientInfo">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fSex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fCheckin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fIdnum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fBednum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fBirthday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fHomeNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fEdu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fMarried" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fHos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fIDY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fGrant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmergenceCaller" Relationship="Self.FK_EmergenceCaller_PatientInfo" FromRole="PatientInfo" ToRole="EmergenceCaller" />
+          <NavigationProperty Name="功能評估" Relationship="Self.FK_功能評估_PatientInfo" FromRole="PatientInfo" ToRole="功能評估" />
+          <NavigationProperty Name="疾病診斷" Relationship="Self.FK_疾病診斷_PatientInfo" FromRole="PatientInfo" ToRole="疾病診斷" />
+          <NavigationProperty Name="病人開藥日期" Relationship="Self.FK_病人開藥日期_PatientInfo" FromRole="PatientInfo" ToRole="病人開藥日期" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tClassThemeList">
+          <Key>
+            <PropertyRef Name="fClassThemeID" />
+          </Key>
+          <Property Name="fDeleteBool" Type="Boolean" />
+          <Property Name="fClassThemeID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fClassThemeName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tEventType">
+          <Key>
+            <PropertyRef Name="fEventTypeID" />
+          </Key>
+          <Property Name="fID" Type="Int16" />
+          <Property Name="fDeleteBool" Type="Boolean" />
+          <Property Name="fEventTypeID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fEventTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tGroupActivity" Relationship="Self.FK_tGroupActivity_tEventType" FromRole="tEventType" ToRole="tGroupActivity" />
+        </EntityType>
+        <EntityType Name="tFunctionBrige">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fFunctionlID" Type="Int32" Nullable="false" />
+          <Property Name="fTypeName" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeNames" Relationship="Self.FK_tFunctionBrige_TypeNames" FromRole="tFunctionBrige" ToRole="TypeNames" />
+          <NavigationProperty Name="功能評估" Relationship="Self.FK_tFunctionBrige_功能評估" FromRole="tFunctionBrige" ToRole="功能評估" />
+        </EntityType>
+        <EntityType Name="tGroupActivity">
+          <Key>
+            <PropertyRef Name="fGroupActivityID" />
+          </Key>
+          <Property Name="fID" Type="Int32" />
+          <Property Name="fDeleteBool" Type="Boolean" />
+          <Property Name="fGroupActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fEventType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fStartTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fEndTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fGoal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fPeopleCount" Type="Int32" Nullable="false" />
+          <Property Name="fLeader" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fRecorder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fProcess" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fAchievement" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fFillFormStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fFillFormDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tEventType" Relationship="Self.FK_tGroupActivity_tEventType" FromRole="tGroupActivity" ToRole="tEventType" />
+          <NavigationProperty Name="tGroupActivityClassTheme" Relationship="Self.FK_tGroupActivityClassThemeBridging_tGroupActivity" FromRole="tGroupActivity" ToRole="tGroupActivityClassTheme" />
+          <NavigationProperty Name="tGroupActivityPicAndFiles" Relationship="Self.FK_tGroupActivityPictures_tGroupActivity" FromRole="tGroupActivity" ToRole="tGroupActivityPicAndFiles" />
+          <NavigationProperty Name="tPersonalPerformance" Relationship="Self.FK_tPersonalPerformance_tGroupActivity" FromRole="tGroupActivity" ToRole="tPersonalPerformance" />
+          <NavigationProperty Name="tScheduleDetails" Relationship="Self.FK_tScheduleDetails_tGroupActivity" FromRole="tGroupActivity" ToRole="tScheduleDetails" />
+        </EntityType>
+        <EntityType Name="tGroupActivityClassTheme">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fDeleteBool" Type="Boolean" />
+          <Property Name="fGroupActivityID" Type="Int32" Nullable="false" />
+          <Property Name="fClassThemeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tGroupActivity" Relationship="Self.FK_tGroupActivityClassThemeBridging_tGroupActivity" FromRole="tGroupActivityClassTheme" ToRole="tGroupActivity" />
+          <NavigationProperty Name="TypeNames" Relationship="Self.FK_tGroupActivityClassTheme_TypeNames1" FromRole="tGroupActivityClassTheme" ToRole="TypeNames" />
+        </EntityType>
+        <EntityType Name="tGroupActivityPicAndFiles">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fDeleteBool" Type="Boolean" />
+          <Property Name="fGroupActivityID" Type="Int32" Nullable="false" />
+          <Property Name="fPicture1Path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fPicture2Path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fPicture3Path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fPicture4Path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fFile1Path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tGroupActivity" Relationship="Self.FK_tGroupActivityPictures_tGroupActivity" FromRole="tGroupActivityPicAndFiles" ToRole="tGroupActivity" />
+        </EntityType>
+        <EntityType Name="tPersonalPerformance">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fDeleteBool" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="fGroupActivityID" Type="Int32" Nullable="false" />
+          <Property Name="fResidentID" Type="Int32" Nullable="false" />
+          <Property Name="fEmotions" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fParticipatePersistence" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fCooperate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fHumanInteraction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fAttention" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fParticipatePerformance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fDepiction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tGroupActivity" Relationship="Self.FK_tPersonalPerformance_tGroupActivity" FromRole="tPersonalPerformance" ToRole="tGroupActivity" />
+        </EntityType>
+        <EntityType Name="tScheduleDetails">
+          <Key>
+            <PropertyRef Name="fID" />
+          </Key>
+          <Property Name="fID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fDeleteBool" Type="Boolean" />
+          <Property Name="fGroupActivityID" Type="Int32" Nullable="false" />
+          <Property Name="fStartTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fEndTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fDepiction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tGroupActivity" Relationship="Self.FK_tScheduleDetails_tGroupActivity" FromRole="tScheduleDetails" ToRole="tGroupActivity" />
+        </EntityType>
+        <EntityType Name="TypeNames">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeNameId" Type="Int32" />
+          <Property Name="TypeName" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CounsultTypeRecord" Relationship="Self.FK_CounsultTypeRecord_TypeNames" FromRole="TypeNames" ToRole="CounsultTypeRecord" />
+          <NavigationProperty Name="tFunctionBrige" Relationship="Self.FK_tFunctionBrige_TypeNames" FromRole="TypeNames" ToRole="tFunctionBrige" />
+          <NavigationProperty Name="tGroupActivityClassTheme" Relationship="Self.FK_tGroupActivityClassTheme_TypeNames1" FromRole="TypeNames" ToRole="tGroupActivityClassTheme" />
+        </EntityType>
+        <EntityType Name="功能評估">
+          <Key>
+            <PropertyRef Name="f功能評估ID" />
+          </Key>
+          <Property Name="f功能評估ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fid" Type="Int32" Nullable="false" />
+          <Property Name="f日期" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f身高" Type="Decimal" Precision="4" Scale="1" />
+          <Property Name="f體重" Type="Decimal" Precision="4" Scale="1" />
+          <NavigationProperty Name="PatientInfo" Relationship="Self.FK_功能評估_PatientInfo" FromRole="功能評估" ToRole="PatientInfo" />
+          <NavigationProperty Name="tFunctionBrige" Relationship="Self.FK_tFunctionBrige_功能評估" FromRole="功能評估" ToRole="tFunctionBrige" />
+          <NavigationProperty Name="功能評估個表" Relationship="Self.FK_功能評估個表_功能評估" FromRole="功能評估" ToRole="功能評估個表" />
+        </EntityType>
+        <EntityType Name="功能評估個表">
+          <Key>
+            <PropertyRef Name="ID_評估表" />
+          </Key>
+          <Property Name="ID_評估表" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f功能評估ID" Type="Int32" Nullable="false" />
+          <Property Name="f評估項目" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="f現狀評估" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="f問題" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="f復健目標" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="f復健計畫" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="功能評估" Relationship="Self.FK_功能評估個表_功能評估" FromRole="功能評估個表" ToRole="功能評估" />
+        </EntityType>
+        <EntityType Name="疾病診斷">
+          <Key>
+            <PropertyRef Name="ID_Patient_Disease" />
+          </Key>
+          <Property Name="fid" Type="Int32" />
+          <Property Name="ID_Patient_Disease" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Disease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiseaseChineseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PatientInfo" Relationship="Self.FK_疾病診斷_PatientInfo" FromRole="疾病診斷" ToRole="PatientInfo" />
+        </EntityType>
+        <EntityType Name="疾病總表">
+          <Key>
+            <PropertyRef Name="ID_Disease" />
+          </Key>
+          <Property Name="ID_Disease" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="F2" Type="Double" />
+          <Property Name="DiseaseEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DiseaseChineseName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="病人用藥資訊">
+          <Key>
+            <PropertyRef Name="ID_Patient_Medicine_Info" />
+          </Key>
+          <Property Name="ID_Patient_Medicine_Info" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_GetMedicineDate" Type="Int32" />
+          <Property Name="MedicineChineseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MedicineUsage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MedicineTakeTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MedicineDosage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MedicineADDInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="病人開藥日期" Relationship="Self.FK_病人用藥資訊_病人開藥日期" FromRole="病人用藥資訊" ToRole="病人開藥日期" />
+        </EntityType>
+        <EntityType Name="病人開藥日期">
+          <Key>
+            <PropertyRef Name="ID_GetMedicineDate" />
+          </Key>
+          <Property Name="ID_GetMedicineDate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fid" Type="Int32" Nullable="false" />
+          <Property Name="Date_GetMedicine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PatientInfo" Relationship="Self.FK_病人開藥日期_PatientInfo" FromRole="病人開藥日期" ToRole="PatientInfo" />
+          <NavigationProperty Name="病人用藥資訊" Relationship="Self.FK_病人用藥資訊_病人開藥日期" FromRole="病人開藥日期" ToRole="病人用藥資訊" />
+        </EntityType>
+        <EntityType Name="復健計畫">
+          <Key>
+            <PropertyRef Name="功能評估ID" />
+          </Key>
+          <Property Name="功能評估ID" Type="Int32" Nullable="false" />
+          <Property Name="fid" Type="Int32" />
+          <Property Name="日期" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="問題" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="目標" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="治療計畫" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="藥物使用方法">
+          <Key>
+            <PropertyRef Name="ID_MedicineUsage" />
+          </Key>
+          <Property Name="ID_MedicineUsage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicineUsage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="藥物服用時間">
+          <Key>
+            <PropertyRef Name="ID_MedicineTakeTime" />
+          </Key>
+          <Property Name="ID_MedicineTakeTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicineTakeTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="藥物計量單位">
+          <Key>
+            <PropertyRef Name="ID_Unit" />
+          </Key>
+          <Property Name="ID_Unit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Medicine_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="藥物資訊清單">
+          <Key>
+            <PropertyRef Name="ID_Medicine" />
+          </Key>
+          <Property Name="ID_Medicine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicineChineseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MedicineInformation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fRank" Type="Int32" />
+          <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="職級" />
+          </Key>
+          <Property Name="職級" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="職級名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CounsultTypeRecord_Consultation">
+          <End Role="Consultation" Type="Self.Consultation" Multiplicity="1" />
+          <End Role="CounsultTypeRecord" Type="Self.CounsultTypeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consultation">
+              <PropertyRef Name="fConsultId" />
+            </Principal>
+            <Dependent Role="CounsultTypeRecord">
+              <PropertyRef Name="fConsultId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CounsultTypeRecord_TypeNames">
+          <End Role="TypeNames" Type="Self.TypeNames" Multiplicity="1" />
+          <End Role="CounsultTypeRecord" Type="Self.CounsultTypeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNames">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="CounsultTypeRecord">
+              <PropertyRef Name="TypeNameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergenceCaller_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
+          <End Role="EmergenceCaller" Type="Self.EmergenceCaller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="EmergenceCaller">
+              <PropertyRef Name="fPatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_功能評估_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="1" />
+          <End Role="功能評估" Type="Self.功能評估" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="功能評估">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_疾病診斷_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="0..1" />
+          <End Role="疾病診斷" Type="Self.疾病診斷" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="疾病診斷">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_病人開藥日期_PatientInfo">
+          <End Role="PatientInfo" Type="Self.PatientInfo" Multiplicity="1" />
+          <End Role="病人開藥日期" Type="Self.病人開藥日期" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientInfo">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="病人開藥日期">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivity_tEventType">
+          <End Role="tEventType" Type="Self.tEventType" Multiplicity="1" />
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tEventType">
+              <PropertyRef Name="fEventTypeID" />
+            </Principal>
+            <Dependent Role="tGroupActivity">
+              <PropertyRef Name="fEventType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tFunctionBrige_TypeNames">
+          <End Role="TypeNames" Type="Self.TypeNames" Multiplicity="1" />
+          <End Role="tFunctionBrige" Type="Self.tFunctionBrige" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNames">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="tFunctionBrige">
+              <PropertyRef Name="fTypeName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tFunctionBrige_功能評估">
+          <End Role="功能評估" Type="Self.功能評估" Multiplicity="1" />
+          <End Role="tFunctionBrige" Type="Self.tFunctionBrige" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="功能評估">
+              <PropertyRef Name="f功能評估ID" />
+            </Principal>
+            <Dependent Role="tFunctionBrige">
+              <PropertyRef Name="fFunctionlID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivityClassThemeBridging_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tGroupActivityClassTheme" Type="Self.tGroupActivityClassTheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tGroupActivityClassTheme">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivityPictures_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tGroupActivityPicAndFiles" Type="Self.tGroupActivityPicAndFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tGroupActivityPicAndFiles">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tPersonalPerformance_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tPersonalPerformance" Type="Self.tPersonalPerformance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tPersonalPerformance">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tScheduleDetails_tGroupActivity">
+          <End Role="tGroupActivity" Type="Self.tGroupActivity" Multiplicity="1" />
+          <End Role="tScheduleDetails" Type="Self.tScheduleDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGroupActivity">
+              <PropertyRef Name="fGroupActivityID" />
+            </Principal>
+            <Dependent Role="tScheduleDetails">
+              <PropertyRef Name="fGroupActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tGroupActivityClassTheme_TypeNames1">
+          <End Role="TypeNames" Type="Self.TypeNames" Multiplicity="1" />
+          <End Role="tGroupActivityClassTheme" Type="Self.tGroupActivityClassTheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNames">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="tGroupActivityClassTheme">
+              <PropertyRef Name="fClassThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_功能評估個表_功能評估">
+          <End Role="功能評估" Type="Self.功能評估" Multiplicity="1" />
+          <End Role="功能評估個表" Type="Self.功能評估個表" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="功能評估">
+              <PropertyRef Name="f功能評估ID" />
+            </Principal>
+            <Dependent Role="功能評估個表">
+              <PropertyRef Name="f功能評估ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_病人用藥資訊_病人開藥日期">
+          <End Role="病人開藥日期" Type="Self.病人開藥日期" Multiplicity="0..1" />
+          <End Role="病人用藥資訊" Type="Self.病人用藥資訊" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="病人開藥日期">
+              <PropertyRef Name="ID_GetMedicineDate" />
+            </Principal>
+            <Dependent Role="病人用藥資訊">
+              <PropertyRef Name="ID_GetMedicineDate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbClassEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Consultation" EntityType="Self.Consultation" />
+          <EntitySet Name="CounsultTypeRecord" EntityType="Self.CounsultTypeRecord" />
+          <EntitySet Name="EmergenceCaller" EntityType="Self.EmergenceCaller" />
+          <EntitySet Name="PatientInfo" EntityType="Self.PatientInfo" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tClassThemeList" EntityType="Self.tClassThemeList" />
+          <EntitySet Name="tEventType" EntityType="Self.tEventType" />
+          <EntitySet Name="tFunctionBrige" EntityType="Self.tFunctionBrige" />
+          <EntitySet Name="tGroupActivity" EntityType="Self.tGroupActivity" />
+          <EntitySet Name="tGroupActivityClassTheme" EntityType="Self.tGroupActivityClassTheme" />
+          <EntitySet Name="tGroupActivityPicAndFiles" EntityType="Self.tGroupActivityPicAndFiles" />
+          <EntitySet Name="tPersonalPerformance" EntityType="Self.tPersonalPerformance" />
+          <EntitySet Name="tScheduleDetails" EntityType="Self.tScheduleDetails" />
+          <EntitySet Name="TypeNames" EntityType="Self.TypeNames" />
+          <EntitySet Name="功能評估" EntityType="Self.功能評估" />
+          <EntitySet Name="功能評估個表" EntityType="Self.功能評估個表" />
+          <EntitySet Name="疾病診斷" EntityType="Self.疾病診斷" />
+          <EntitySet Name="疾病總表" EntityType="Self.疾病總表" />
+          <EntitySet Name="病人用藥資訊" EntityType="Self.病人用藥資訊" />
+          <EntitySet Name="病人開藥日期" EntityType="Self.病人開藥日期" />
+          <EntitySet Name="復健計畫" EntityType="Self.復健計畫" />
+          <EntitySet Name="藥物使用方法" EntityType="Self.藥物使用方法" />
+          <EntitySet Name="藥物服用時間" EntityType="Self.藥物服用時間" />
+          <EntitySet Name="藥物計量單位" EntityType="Self.藥物計量單位" />
+          <EntitySet Name="藥物資訊清單" EntityType="Self.藥物資訊清單" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Rank" EntityType="Self.Rank" />
+          <AssociationSet Name="FK_CounsultTypeRecord_Consultation" Association="Self.FK_CounsultTypeRecord_Consultation">
+            <End Role="Consultation" EntitySet="Consultation" />
+            <End Role="CounsultTypeRecord" EntitySet="CounsultTypeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CounsultTypeRecord_TypeNames" Association="Self.FK_CounsultTypeRecord_TypeNames">
+            <End Role="TypeNames" EntitySet="TypeNames" />
+            <End Role="CounsultTypeRecord" EntitySet="CounsultTypeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergenceCaller_PatientInfo" Association="Self.FK_EmergenceCaller_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="EmergenceCaller" EntitySet="EmergenceCaller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_功能評估_PatientInfo" Association="Self.FK_功能評估_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="功能評估" EntitySet="功能評估" />
+          </AssociationSet>
+          <AssociationSet Name="FK_疾病診斷_PatientInfo" Association="Self.FK_疾病診斷_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="疾病診斷" EntitySet="疾病診斷" />
+          </AssociationSet>
+          <AssociationSet Name="FK_病人開藥日期_PatientInfo" Association="Self.FK_病人開藥日期_PatientInfo">
+            <End Role="PatientInfo" EntitySet="PatientInfo" />
+            <End Role="病人開藥日期" EntitySet="病人開藥日期" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivity_tEventType" Association="Self.FK_tGroupActivity_tEventType">
+            <End Role="tEventType" EntitySet="tEventType" />
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tFunctionBrige_TypeNames" Association="Self.FK_tFunctionBrige_TypeNames">
+            <End Role="TypeNames" EntitySet="TypeNames" />
+            <End Role="tFunctionBrige" EntitySet="tFunctionBrige" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tFunctionBrige_功能評估" Association="Self.FK_tFunctionBrige_功能評估">
+            <End Role="功能評估" EntitySet="功能評估" />
+            <End Role="tFunctionBrige" EntitySet="tFunctionBrige" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivityClassThemeBridging_tGroupActivity" Association="Self.FK_tGroupActivityClassThemeBridging_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tGroupActivityClassTheme" EntitySet="tGroupActivityClassTheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivityPictures_tGroupActivity" Association="Self.FK_tGroupActivityPictures_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tGroupActivityPicAndFiles" EntitySet="tGroupActivityPicAndFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tPersonalPerformance_tGroupActivity" Association="Self.FK_tPersonalPerformance_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tPersonalPerformance" EntitySet="tPersonalPerformance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tScheduleDetails_tGroupActivity" Association="Self.FK_tScheduleDetails_tGroupActivity">
+            <End Role="tGroupActivity" EntitySet="tGroupActivity" />
+            <End Role="tScheduleDetails" EntitySet="tScheduleDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tGroupActivityClassTheme_TypeNames1" Association="Self.FK_tGroupActivityClassTheme_TypeNames1">
+            <End Role="TypeNames" EntitySet="TypeNames" />
+            <End Role="tGroupActivityClassTheme" EntitySet="tGroupActivityClassTheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_功能評估個表_功能評估" Association="Self.FK_功能評估個表_功能評估">
+            <End Role="功能評估" EntitySet="功能評估" />
+            <End Role="功能評估個表" EntitySet="功能評估個表" />
+          </AssociationSet>
+          <AssociationSet Name="FK_病人用藥資訊_病人開藥日期" Association="Self.FK_病人用藥資訊_病人開藥日期">
+            <End Role="病人開藥日期" EntitySet="病人開藥日期" />
+            <End Role="病人用藥資訊" EntitySet="病人用藥資訊" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbClassModelStoreContainer" CdmEntityContainer="dbClassEntities">
+          <EntitySetMapping Name="Consultation">
+            <EntityTypeMapping TypeName="dbClassModel.Consultation">
+              <MappingFragment StoreEntitySet="Consultation">
+                <ScalarProperty Name="fConsultId" ColumnName="fConsultId" />
+                <ScalarProperty Name="PatinetId" ColumnName="PatinetId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Assessment" ColumnName="Assessment" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CounsultTypeRecord">
+            <EntityTypeMapping TypeName="dbClassModel.CounsultTypeRecord">
+              <MappingFragment StoreEntitySet="CounsultTypeRecord">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="TypeNameId" ColumnName="TypeNameId" />
+                <ScalarProperty Name="fConsultId" ColumnName="fConsultId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmergenceCaller">
+            <EntityTypeMapping TypeName="dbClassModel.EmergenceCaller">
+              <MappingFragment StoreEntitySet="EmergenceCaller">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="fPatientId" ColumnName="fPatientId" />
+                <ScalarProperty Name="fEmergencyName" ColumnName="fEmergencyName" />
+                <ScalarProperty Name="frelation" ColumnName="frelation" />
+                <ScalarProperty Name="fPhone" ColumnName="fPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientInfo">
+            <EntityTypeMapping TypeName="dbClassModel.PatientInfo">
+              <MappingFragment StoreEntitySet="PatientInfo">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="fSex" ColumnName="fSex" />
+                <ScalarProperty Name="fCheckin" ColumnName="fCheckin" />
+                <ScalarProperty Name="fIdnum" ColumnName="fIdnum" />
+                <ScalarProperty Name="fBednum" ColumnName="fBednum" />
+                <ScalarProperty Name="fBirthday" ColumnName="fBirthday" />
+                <ScalarProperty Name="fHomeNum" ColumnName="fHomeNum" />
+                <ScalarProperty Name="fPhone" ColumnName="fPhone" />
+                <ScalarProperty Name="fEdu" ColumnName="fEdu" />
+                <ScalarProperty Name="fMarried" ColumnName="fMarried" />
+                <ScalarProperty Name="fAddress" ColumnName="fAddress" />
+                <ScalarProperty Name="fHos" ColumnName="fHos" />
+                <ScalarProperty Name="fIDY" ColumnName="fIDY" />
+                <ScalarProperty Name="fGrant" ColumnName="fGrant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dbClassModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tClassThemeList">
+            <EntityTypeMapping TypeName="dbClassModel.tClassThemeList">
+              <MappingFragment StoreEntitySet="tClassThemeList">
+                <ScalarProperty Name="fDeleteBool" ColumnName="fDeleteBool" />
+                <ScalarProperty Name="fClassThemeID" ColumnName="fClassThemeID" />
+                <ScalarProperty Name="fClassThemeName" ColumnName="fClassThemeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tEventType">
+            <EntityTypeMapping TypeName="dbClassModel.tEventType">
+              <MappingFragment StoreEntitySet="tEventType">
+                <ScalarProperty Name="fID" ColumnName="fID" />
+                <ScalarProperty Name="fDeleteBool" ColumnName="fDeleteBool" />
+                <ScalarProperty Name="fEventTypeID" ColumnName="fEventTypeID" />
+                <ScalarProperty Name="fEventTypeName" ColumnName="fEventTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tFunctionBrige">
+            <EntityTypeMapping TypeName="dbClassModel.tFunctionBrige">
+              <MappingFragment StoreEntitySet="tFunctionBrige">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="fFunctionlID" ColumnName="fFunctionlID" />
+                <ScalarProperty Name="fTypeName" ColumnName="fTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tGroupActivity">
+            <EntityTypeMapping TypeName="dbClassModel.tGroupActivity">
+              <MappingFragment StoreEntitySet="tGroupActivity">
+                <ScalarProperty Name="fID" ColumnName="fID" />
+                <ScalarProperty Name="fDeleteBool" ColumnName="fDeleteBool" />
+                <ScalarProperty Name="fGroupActivityID" ColumnName="fGroupActivityID" />
+                <ScalarProperty Name="fEventType" ColumnName="fEventType" />
+                <ScalarProperty Name="fDate" ColumnName="fDate" />
+                <ScalarProperty Name="fStartTime" ColumnName="fStartTime" />
+                <ScalarProperty Name="fEndTime" ColumnName="fEndTime" />
+                <ScalarProperty Name="fGroupName" ColumnName="fGroupName" />
+                <ScalarProperty Name="fClassName" ColumnName="fClassName" />
+                <ScalarProperty Name="fGoal" ColumnName="fGoal" />
+                <ScalarProperty Name="fLocation" ColumnName="fLocation" />
+                <ScalarProperty Name="fPeopleCount" ColumnName="fPeopleCount" />
+                <ScalarProperty Name="fLeader" ColumnName="fLeader" />
+                <ScalarProperty Name="fRecorder" ColumnName="fRecorder" />
+                <ScalarProperty Name="fProcess" ColumnName="fProcess" />
+                <ScalarProperty Name="fAchievement" ColumnName="fAchievement" />
+                <ScalarProperty Name="fFillFormStaff" ColumnName="fFillFormStaff" />
+                <ScalarProperty Name="fFillFormDate" ColumnName="fFillFormDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tGroupActivityClassTheme">
+            <EntityTypeMapping TypeName="dbClassModel.tGroupActivityClassTheme">
+              <MappingFragment StoreEntitySet="tGroupActivityClassTheme">
+                <ScalarProperty Name="fID" ColumnName="fID" />
+                <ScalarProperty Name="fDeleteBool" ColumnName="fDeleteBool" />
+                <ScalarProperty Name="fGroupActivityID" ColumnName="fGroupActivityID" />
+                <ScalarProperty Name="fClassThemeID" ColumnName="fClassThemeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tGroupActivityPicAndFiles">
+            <EntityTypeMapping TypeName="dbClassModel.tGroupActivityPicAndFiles">
+              <MappingFragment StoreEntitySet="tGroupActivityPicAndFiles">
+                <ScalarProperty Name="fID" ColumnName="fID" />
+                <ScalarProperty Name="fDeleteBool" ColumnName="fDeleteBool" />
+                <ScalarProperty Name="fGroupActivityID" ColumnName="fGroupActivityID" />
+                <ScalarProperty Name="fPicture1Path" ColumnName="fPicture1Path" />
+                <ScalarProperty Name="fPicture2Path" ColumnName="fPicture2Path" />
+                <ScalarProperty Name="fPicture3Path" ColumnName="fPicture3Path" />
+                <ScalarProperty Name="fPicture4Path" ColumnName="fPicture4Path" />
+                <ScalarProperty Name="fFile1Path" ColumnName="fFile1Path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tPersonalPerformance">
+            <EntityTypeMapping TypeName="dbClassModel.tPersonalPerformance">
+              <MappingFragment StoreEntitySet="tPersonalPerformance">
+                <ScalarProperty Name="fID" ColumnName="fID" />
+                <ScalarProperty Name="fDeleteBool" ColumnName="fDeleteBool" />
+                <ScalarProperty Name="fGroupActivityID" ColumnName="fGroupActivityID" />
+                <ScalarProperty Name="fResidentID" ColumnName="fResidentID" />
+                <ScalarProperty Name="fEmotions" ColumnName="fEmotions" />
+                <ScalarProperty Name="fParticipatePersistence" ColumnName="fParticipatePersistence" />
+                <ScalarProperty Name="fCooperate" ColumnName="fCooperate" />
+                <ScalarProperty Name="fHumanInteraction" ColumnName="fHumanInteraction" />
+                <ScalarProperty Name="fAttention" ColumnName="fAttention" />
+                <ScalarProperty Name="fParticipatePerformance" ColumnName="fParticipatePerformance" />
+                <ScalarProperty Name="fDepiction" ColumnName="fDepiction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tScheduleDetails">
+            <EntityTypeMapping TypeName="dbClassModel.tScheduleDetails">
+              <MappingFragment StoreEntitySet="tScheduleDetails">
+                <ScalarProperty Name="fID" ColumnName="fID" />
+                <ScalarProperty Name="fDeleteBool" ColumnName="fDeleteBool" />
+                <ScalarProperty Name="fGroupActivityID" ColumnName="fGroupActivityID" />
+                <ScalarProperty Name="fStartTime" ColumnName="fStartTime" />
+                <ScalarProperty Name="fEndTime" ColumnName="fEndTime" />
+                <ScalarProperty Name="fDepiction" ColumnName="fDepiction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeNames">
+            <EntityTypeMapping TypeName="dbClassModel.TypeNames">
+              <MappingFragment StoreEntitySet="TypeNames">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="TypeNameId" ColumnName="TypeNameId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="功能評估">
+            <EntityTypeMapping TypeName="dbClassModel.功能評估">
+              <MappingFragment StoreEntitySet="功能評估">
+                <ScalarProperty Name="f功能評估ID" ColumnName="f功能評估ID" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="f日期" ColumnName="f日期" />
+                <ScalarProperty Name="f身高" ColumnName="f身高" />
+                <ScalarProperty Name="f體重" ColumnName="f體重" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="功能評估個表">
+            <EntityTypeMapping TypeName="dbClassModel.功能評估個表">
+              <MappingFragment StoreEntitySet="功能評估個表">
+                <ScalarProperty Name="ID_評估表" ColumnName="ID_評估表" />
+                <ScalarProperty Name="f功能評估ID" ColumnName="f功能評估ID" />
+                <ScalarProperty Name="f評估項目" ColumnName="f評估項目" />
+                <ScalarProperty Name="f現狀評估" ColumnName="f現狀評估" />
+                <ScalarProperty Name="f問題" ColumnName="f問題" />
+                <ScalarProperty Name="f復健目標" ColumnName="f復健目標" />
+                <ScalarProperty Name="f復健計畫" ColumnName="f復健計畫" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="疾病診斷">
+            <EntityTypeMapping TypeName="dbClassModel.疾病診斷">
+              <MappingFragment StoreEntitySet="疾病診斷">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="ID_Patient_Disease" ColumnName="ID_Patient_Disease" />
+                <ScalarProperty Name="ID_Disease" ColumnName="ID_Disease" />
+                <ScalarProperty Name="DiseaseChineseName" ColumnName="DiseaseChineseName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="疾病總表">
+            <EntityTypeMapping TypeName="dbClassModel.疾病總表">
+              <MappingFragment StoreEntitySet="疾病總表">
+                <ScalarProperty Name="ID_Disease" ColumnName="ID_Disease" />
+                <ScalarProperty Name="F2" ColumnName="F2" />
+                <ScalarProperty Name="DiseaseEnglishName" ColumnName="DiseaseEnglishName" />
+                <ScalarProperty Name="DiseaseChineseName" ColumnName="DiseaseChineseName" />
+                <ScalarProperty Name="F5" ColumnName="F5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="病人用藥資訊">
+            <EntityTypeMapping TypeName="dbClassModel.病人用藥資訊">
+              <MappingFragment StoreEntitySet="病人用藥資訊">
+                <ScalarProperty Name="ID_Patient_Medicine_Info" ColumnName="ID_Patient_Medicine_Info" />
+                <ScalarProperty Name="ID_GetMedicineDate" ColumnName="ID_GetMedicineDate" />
+                <ScalarProperty Name="MedicineChineseName" ColumnName="MedicineChineseName" />
+                <ScalarProperty Name="MedicineUsage" ColumnName="MedicineUsage" />
+                <ScalarProperty Name="MedicineTakeTime" ColumnName="MedicineTakeTime" />
+                <ScalarProperty Name="MedicineDosage" ColumnName="MedicineDosage" />
+                <ScalarProperty Name="MedicineADDInfo" ColumnName="MedicineADDInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="病人開藥日期">
+            <EntityTypeMapping TypeName="dbClassModel.病人開藥日期">
+              <MappingFragment StoreEntitySet="病人開藥日期">
+                <ScalarProperty Name="ID_GetMedicineDate" ColumnName="ID_GetMedicineDate" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="Date_GetMedicine" ColumnName="Date_GetMedicine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="復健計畫">
+            <EntityTypeMapping TypeName="dbClassModel.復健計畫">
+              <MappingFragment StoreEntitySet="復健計畫">
+                <ScalarProperty Name="功能評估ID" ColumnName="功能評估ID" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="日期" ColumnName="日期" />
+                <ScalarProperty Name="問題" ColumnName="問題" />
+                <ScalarProperty Name="目標" ColumnName="目標" />
+                <ScalarProperty Name="治療計畫" ColumnName="治療計畫" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="藥物使用方法">
+            <EntityTypeMapping TypeName="dbClassModel.藥物使用方法">
+              <MappingFragment StoreEntitySet="藥物使用方法">
+                <ScalarProperty Name="ID_MedicineUsage" ColumnName="ID_MedicineUsage" />
+                <ScalarProperty Name="MedicineUsage" ColumnName="MedicineUsage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="藥物服用時間">
+            <EntityTypeMapping TypeName="dbClassModel.藥物服用時間">
+              <MappingFragment StoreEntitySet="藥物服用時間">
+                <ScalarProperty Name="ID_MedicineTakeTime" ColumnName="ID_MedicineTakeTime" />
+                <ScalarProperty Name="MedicineTakeTime" ColumnName="MedicineTakeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="藥物計量單位">
+            <EntityTypeMapping TypeName="dbClassModel.藥物計量單位">
+              <MappingFragment StoreEntitySet="藥物計量單位">
+                <ScalarProperty Name="ID_Unit" ColumnName="ID_Unit" />
+                <ScalarProperty Name="Medicine_Unit" ColumnName="Medicine_Unit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="藥物資訊清單">
+            <EntityTypeMapping TypeName="dbClassModel.藥物資訊清單">
+              <MappingFragment StoreEntitySet="藥物資訊清單">
+                <ScalarProperty Name="ID_Medicine" ColumnName="ID_Medicine" />
+                <ScalarProperty Name="MedicineChineseName" ColumnName="MedicineChineseName" />
+                <ScalarProperty Name="MedicineInformation" ColumnName="MedicineInformation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="dbClassModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="fRank" ColumnName="fRank" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="fPassword" ColumnName="fPassword" />
+                <ScalarProperty Name="fAddress" ColumnName="fAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rank">
+            <EntityTypeMapping TypeName="dbClassModel.Rank">
+              <MappingFragment StoreEntitySet="Rank">
+                <ScalarProperty Name="職級" ColumnName="職級" />
+                <ScalarProperty Name="職級名稱" ColumnName="職級名稱" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

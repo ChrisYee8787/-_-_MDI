@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "康家_藥物疾病列表", "康家_藥物疾病列表\康家_藥物疾病列表.csproj", "{63A25646-EE37-4104-97DA-8C697C64766C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63A25646-EE37-4104-97DA-8C697C64766C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63A25646-EE37-4104-97DA-8C697C64766C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63A25646-EE37-4104-97DA-8C697C64766C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63A25646-EE37-4104-97DA-8C697C64766C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF235EA4-2236-4DC7-B92E-BA0F1811CAD5}
+	EndGlobalSection
+EndGlobal

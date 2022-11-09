@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63A25646-EE37-4104-97DA-8C697C64766C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>康家_藥物疾病列表</RootNamespace>
+    <AssemblyName>康家_藥物疾病列表</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Consultation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CounsultTypeRecord.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmergenceCaller.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientInfo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rank.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tClassThemeList.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tEventType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tFunctionBrige.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tGroupActivity.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tGroupActivityClassTheme.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tGroupActivityPicAndFiles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tPersonalPerformance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tScheduleDetails.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeNames.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Yee\ADDCALLER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yee\ADDCALLER.designer.cs">
+      <DependentUpon>ADDCALLER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yee\EmergyCaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yee\EmergyCaller.designer.cs">
+      <DependentUpon>EmergyCaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eric\class\classForStatic.cs" />
+    <Compile Include="Eric\class\GroupActivityClassForUpdate.cs" />
+    <Compile Include="Eric\class\ParamatsWithValueClass.cs" />
+    <Compile Include="Eric\class\Utility.cs" />
+    <Compile Include="Eric\GroupActivityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eric\GroupActivityForm.designer.cs">
+      <DependentUpon>GroupActivityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eric\GroupActivityMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eric\GroupActivityMenu.designer.cs">
+      <DependentUpon>GroupActivityMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eric\GroupActivityPartialClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eric\Option.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eric\Option.designer.cs">
+      <DependentUpon>Option.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eric\userControl\PersonalPerformance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Eric\userControl\PersonalPerformance.designer.cs">
+      <DependentUpon>PersonalPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eric\userControl\ScheduleDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Eric\userControl\ScheduleDetails.designer.cs">
+      <DependentUpon>ScheduleDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalEntity.cs" />
+    <Compile Include="FinalEntity.designer.cs">
+      <DependentUpon>FinalEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gimmy\frm_Consult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gimmy\frm_Consult.designer.cs">
+      <DependentUpon>frm_Consult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\frm_住民資料表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_住民資料表.designer.cs">
+      <DependentUpon>frm_住民資料表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yee\UPDATECALLER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yee\UPDATECALLER.designer.cs">
+      <DependentUpon>UPDATECALLER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yee\frm_DetailInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yee\frm_DetailInfo.designer.cs">
+      <DependentUpon>frm_DetailInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\frm_search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_search.Designer.cs">
+      <DependentUpon>frm_search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_主表單.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_主表單.Designer.cs">
+      <DependentUpon>Frm_主表單.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\frm_住民用藥紀錄表單.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_住民用藥紀錄表單.Designer.cs">
+      <DependentUpon>frm_住民用藥紀錄表單.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tony\frm_功能評估表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tony\frm_功能評估表.Designer.cs">
+      <DependentUpon>frm_功能評估表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\Frm_新增藥物資訊.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\Frm_新增藥物資訊.Designer.cs">
+      <DependentUpon>Frm_新增藥物資訊.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\frm_新增開藥日期.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_新增開藥日期.Designer.cs">
+      <DependentUpon>frm_新增開藥日期.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\frm_新康家居民用藥資訊.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_新康家居民用藥資訊.Designer.cs">
+      <DependentUpon>frm_新康家居民用藥資訊.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\frm_藥物表單.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_藥物表單.Designer.cs">
+      <DependentUpon>frm_藥物表單.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\Model\cDisease.cs" />
+    <Compile Include="Lin\frm_康家居民疾病資料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_康家居民疾病資料.Designer.cs">
+      <DependentUpon>frm_康家居民疾病資料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\frm_疾病診斷表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_疾病診斷表.Designer.cs">
+      <DependentUpon>frm_疾病診斷表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lin\Model\cMedicine.cs" />
+    <Compile Include="Lin\Model\c住民用藥.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Lin\frm_疾病選單.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lin\frm_疾病選單.Designer.cs">
+      <DependentUpon>frm_疾病選單.cs</DependentUpon>
+    </Compile>
+    <Compile Include="功能評估.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="功能評估個表.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="復健計畫.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="疾病總表.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="疾病診斷.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="病人用藥資訊.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="病人開藥日期.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="藥物使用方法.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="藥物服用時間.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="藥物計量單位.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="藥物資訊清單.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Yee\ADDCALLER.resx">
+      <DependentUpon>ADDCALLER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yee\EmergyCaller.resx">
+      <DependentUpon>EmergyCaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eric\GroupActivityForm.resx">
+      <DependentUpon>GroupActivityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eric\GroupActivityMenu.resx">
+      <DependentUpon>GroupActivityMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eric\Option.resx">
+      <DependentUpon>Option.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eric\userControl\PersonalPerformance.resx">
+      <DependentUpon>PersonalPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eric\userControl\ScheduleDetails.resx">
+      <DependentUpon>ScheduleDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gimmy\frm_Consult.resx">
+      <DependentUpon>frm_Consult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_住民資料表.resx">
+      <DependentUpon>frm_住民資料表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yee\UPDATECALLER.resx">
+      <DependentUpon>UPDATECALLER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yee\frm_DetailInfo.resx">
+      <DependentUpon>frm_DetailInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_search.resx">
+      <DependentUpon>frm_search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_主表單.resx">
+      <DependentUpon>Frm_主表單.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_住民用藥紀錄表單.resx">
+      <DependentUpon>frm_住民用藥紀錄表單.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tony\frm_功能評估表.resx">
+      <DependentUpon>frm_功能評估表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_康家居民疾病資料.resx">
+      <DependentUpon>frm_康家居民疾病資料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\Frm_新增藥物資訊.resx">
+      <DependentUpon>Frm_新增藥物資訊.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_新增開藥日期.resx">
+      <DependentUpon>frm_新增開藥日期.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_新康家居民用藥資訊.resx">
+      <DependentUpon>frm_新康家居民用藥資訊.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_疾病診斷表.resx">
+      <DependentUpon>frm_疾病診斷表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lin\frm_藥物表單.resx">
+      <DependentUpon>frm_藥物表單.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Lin\frm_疾病選單.resx">
+      <DependentUpon>frm_疾病選單.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

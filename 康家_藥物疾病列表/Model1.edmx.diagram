@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c1dc0e211854ee9afb639c1b4b1e068" Name="Diagram1">
+        <EntityTypeShape EntityType="dbClassModel.Consultation" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.CounsultTypeRecord" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.EmergenceCaller" Width="1.5" PointX="10" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.PatientInfo" Width="1.5" PointX="7.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tClassThemeList" Width="1.5" PointX="2.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tEventType" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tFunctionBrige" Width="1.5" PointX="12.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tGroupActivity" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tGroupActivityClassTheme" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tGroupActivityPicAndFiles" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tPersonalPerformance" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.tScheduleDetails" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.TypeNames" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.功能評估" Width="1.5" PointX="10" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.功能評估個表" Width="1.5" PointX="12.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.疾病診斷" Width="1.5" PointX="10" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.疾病總表" Width="1.5" PointX="10.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.病人用藥資訊" Width="1.5" PointX="12.25" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.病人開藥日期" Width="1.5" PointX="10" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.復健計畫" Width="1.5" PointX="10.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.藥物使用方法" Width="1.5" PointX="7.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.藥物服用時間" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.藥物計量單位" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.藥物資訊清單" Width="1.5" PointX="12.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.Employee" Width="1.5" PointX="12.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbClassModel.Rank" Width="1.5" PointX="12.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="dbClassModel.FK_CounsultTypeRecord_Consultation" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_CounsultTypeRecord_TypeNames" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_EmergenceCaller_PatientInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_功能評估_PatientInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_疾病診斷_PatientInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_病人開藥日期_PatientInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tGroupActivity_tEventType" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tFunctionBrige_TypeNames" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tFunctionBrige_功能評估" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tGroupActivityClassThemeBridging_tGroupActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tGroupActivityPictures_tGroupActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tPersonalPerformance_tGroupActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tScheduleDetails_tGroupActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_tGroupActivityClassTheme_TypeNames1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_功能評估個表_功能評估" ManuallyRouted="false" />
+        <AssociationConnector Association="dbClassModel.FK_病人用藥資訊_病人開藥日期" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
